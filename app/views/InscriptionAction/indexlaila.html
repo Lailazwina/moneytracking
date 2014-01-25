@@ -1,0 +1,68 @@
+#{extends 'main.html' /}
+
+<h1>Contact Us</h1>
+
+#{ifErrors}
+    <h2>Oops, please correct these errors</h2>
+#{/ifErrors}
+
+#{jQueryValidate class:models.Inscription.class, key:'user' /}
+
+#{form id:'inscriptionForm', action:@InscriptionAction.handleSubmit()}
+
+<fieldset>              
+        <legend>Contact Us</legend>  
+        
+        #{field 'user.firstName'}
+        <div class="field">         
+            <label for="${field.id}">First Name : </label>
+            <input id="${field.id}" type="text" name="${field.name}" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}
+          #{field 'user.lastName'}
+        <div class="field">         
+            <label for="${field.id}">Last Name : </label>
+            <input id="${field.id}" type="text" name="${field.name}" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}
+          #{field 'user.username'}
+        <div class="field">         
+            <label for="${field.id}">Username : </label>
+            <input id="${field.id}" type="text" name="${field.name}" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}
+
+        #{field 'user.email'}
+        <div class="field">             
+            <label for="${field.id}">Email address : </label>                   
+            <input id="${field.id}" type="text" name="${field.name}" size="30" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}
+        
+          #{field 'user.password'}
+        <div class="field">         
+            <label for="${field.id}">Password : </label>
+            <input id="${field.id}" type="text" name="${field.name}" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}
+          #{field 'user.passwordConfirm'}
+        <div class="field">         
+            <label for="${field.id}">Password Confirm : </label>
+            <input id="${field.id}" type="text" name="${field.name}" 
+            value="${field.value}" class="${field.errorClass}" />
+            <span class="error">${field.error}</span>
+        </div>
+        #{/field}        
+</fieldset>      
+    <input type="submit" class="submit" value="Send" />
+#{/form}
